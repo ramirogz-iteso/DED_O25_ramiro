@@ -1,7 +1,22 @@
 Ramiro Garcia Zepeda
-Mi primer archivo.
-ESTA ES UNA NUEVA LINEA
-Este archivo esta creado en la misma carpeta.
+Mi primer archivo y guia de TERMINAL:
 
+ramirogz@ramirogz-mac DED_O25_ramiro % pwd
+/Users/ramirogz/DS713/ramirogz/ITESO/DED_O25_ramiro
+
+
+ramirogz@ramirogz-mac DED_O25_ramiro % ls
+hello_world.c           hidden_class_repos      ramiro.txt
+
+"Para entrar a carpeta"
+ramirogz@ramirogz-mac DED_O25_ramiro % cd carpeta
+
+Para compilar:
+gcc hello_world.c -o hello_world.exe
+gcc archivo_fuente -o nombre_binario
+
+Para correr:
+./hello_world.exe
+./nombre_binario 
 
 OTRA

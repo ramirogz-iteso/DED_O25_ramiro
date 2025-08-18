@@ -4,6 +4,6 @@
 int main ()
 {
 
-  printf("Welcome to DED 25 \n");
+  printf("Welcome to DED 25 HURRAY!\n");
   return 0;
 }
