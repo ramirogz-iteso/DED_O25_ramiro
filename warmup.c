@@ -77,7 +77,7 @@ int main(void)
 int exam01(void)
 {
     int temperature = 18; /* you can change this to test */
-
+    return 0;
 }
 
 /* ####################   EX02: While loop (digits)   #######################
