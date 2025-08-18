@@ -1,0 +1,4 @@
+Ramiro Garcia Zepeda
+Mi primer archivo.
+
+Este archivo esta creado en la misma carpeta.
