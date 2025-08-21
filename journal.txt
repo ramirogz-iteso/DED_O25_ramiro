@@ -1,0 +1,12 @@
+Clase 1:
+Revisamos las reglas de clase, criterios de evaluacion y formato
+Creamos cuentas de GITHUG e instalamos VSCODE + GITHUB Desktop. Cada quien creo 
+su propio repositorio y lo compartieron con Ramiro. [DED_O25name]
+Creamos nuestro primer hola_mundo.c y aprendimos a compilar en consola, hay 
+instrucciones en el archivo ramiro.txt
+El repositorio del Profe, sera la fuente de la verdad ya conocimiento, hare 
+comit al final de cada clase, podrian ir viendo ahi los ejercicios resueltos
+cada que actualice mi codigo.
+
+
+
