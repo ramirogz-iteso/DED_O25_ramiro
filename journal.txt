@@ -9,4 +9,10 @@ comit al final de cada clase, podrian ir viendo ahi los ejercicios resueltos
 cada que actualice mi codigo.
 
 
+Clase 2:
+Revisamos a detalle todo el archvio warmup.c dando una buena refrescada de temas
+del semestre pasado.
+Comenzamos con "Introduction to pointers.pptx" ya se encuentra la presentacion en
+teams y quedo de tarea leer y tratar de avanzar hasta donde les sea posible el
+archivo pointer_basic.c
 
