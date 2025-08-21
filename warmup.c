@@ -36,7 +36,7 @@
 
 #define CLEAR printf("\033[0;0H\033[2J")
 
-/* ======= Prototypes for the 8 exercises ======= */
+/* ======= Prototypes for the 5 exercises ======= */
 int  exam01(void);
 int  exam02(void);
 int  exam03(void);
@@ -47,7 +47,7 @@ int  exam05(void);
 int main(void)
 {
     CLEAR;
-    char name[32] = "YOUR NAME";
+    char name[32] = "Ramiro";
     printf("Intro C Prereqs Practical Exam\n\tStudent: %s\n\n", name);
 
     printf("---- EX01 -------------------------------------\n");
@@ -77,6 +77,15 @@ int main(void)
 int exam01(void)
 {
     int temperature = 18; /* you can change this to test */
+
+    printf("temperature = %d it feels ", temperature);
+    if (temperature < 10) {
+        printf("COLD\n");
+    } else if (temperature <= 25) {
+        printf("WARM\n");
+    } else {
+        printf("HOT\n");
+    }
     return 0;
 }
 
@@ -88,6 +97,17 @@ int exam02(void)
     int x = 9302;
     int digits = 0;
 
+    if (x == 0) {
+        digits = 1;
+    } else {
+        int t = x;
+        while (t > 0) {
+            digits++;
+            t /= 10;
+        }
+    }
+
+    printf("Digits in %u = %d\n", x, digits);
     return 0;
 }
 
@@ -96,7 +116,27 @@ int exam02(void)
 */
 int exam03(void)
 {
+    int scores[] = {72, 85, 90, 66, 95, 88};
+    int n = (int)(sizeof(scores)/sizeof(scores[0]));
 
+    int sum = 0;
+    int maxv = scores[0];
+    for (int i = 0; i < n; ++i) {
+        sum += scores[i];
+
+        printf("checking if scores[%d] is greater than %d\n",
+                scores[i], maxv );
+                //getchar();
+    
+        if (scores[i] > maxv) 
+        {
+          maxv = scores[i];
+          printf("Updating MAX VAL : %d\n", maxv);
+        }
+    }
+    double avg = (double)sum / (double)n;
+
+    printf("Average = %.2f, Max = %d\n", avg, maxv);
     return 0;
 }
 
@@ -114,10 +154,24 @@ int exam03(void)
    ATTENTION: You need to create the struct, typedef and declare a new
    function, then test it inside EX04
 */
+typedef struct {
+    char  name[16];
+    float price;
+    int   qty;
+} GroceryItem;
+
+float line_total(GroceryItem it)
+{
+    float precio_tot = it.price * (float)it.qty;
+    return precio_tot;
+}
 
 int exam04(void)
 {
+    GroceryItem milk = { "Milk", 2.50f, 2 };
+    float total = line_total(milk);
 
+    printf("%s x%d -> $%.2f\n", milk.name, milk.qty, total);
     return 0;
 }
 
@@ -135,12 +189,20 @@ int exam04(void)
     Brute force OK, but do you remember Binary search and Algorithm 
     complexity?
 */
+int find_first(const int arr[], int n, int target)
+{
+    for (int i = 0; i < n; ++i) {
+        if (arr[i] == target) return i;
+    }
+    return -1;
+}
 
 int exam05(void)
 {
     int data[] = {4, 9, 1, 9, 2, 9};
     int n = (int)(sizeof(data)/sizeof(data[0]));
     int target = 9;
-    //int idx = // Call your function
+    int idx = find_first(data, n, target);
+    printf("First %d at index %d\n", target, idx);
     return 0;
 }
