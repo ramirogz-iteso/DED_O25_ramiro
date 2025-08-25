@@ -15,10 +15,12 @@
     excercise : blackjack.c
 */
 
-int sum(int, int, int *);
+
 #define TRUE 1
 #define FALSE 0
 typedef int boolean;
+
+int sum(int, int, boolean *);
 
 void add10(int);
 void add10_r(int *);
@@ -100,7 +102,7 @@ void in_and_out_args()
   the REFERENCE (not the value)
   */
 
-  int a = 10;
+  int a = 11;
   int b = 14;
   boolean magic = FALSE; //int set to zero
   

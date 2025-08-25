@@ -60,6 +60,8 @@ void ex1_pointers_size()
   } node;
 
   struct node mynode;
+  struct node otra;
+
   struct node *ptr_node = &mynode;
 
   printf("how big is a pointer to a struct ??");
@@ -99,11 +101,9 @@ void ex1_pointers_size()
   printf("letter = %c\n", letter);
 
   /* What you CAN'T do is assign a pointer to another of a different type */
-  //char_ptr = ptr_i;
-  
-  //int a_number;
-  //a_number = mynode;
+  char_ptr = (char *) ptr_i;
 
+  printf("char is %c\n", *char_ptr);
   
 }
 
@@ -141,12 +141,12 @@ void ex2_playing_with_pointers()
   int value;
   printf(" = = = = = Ex02 = = = = = = \n");
 
-  int *ptr5 = NULL;
-  if(ptr5 != NULL)
-  {
-    int x = 10 + *ptr5;
-    printf("%d\n", x);
-  }
+  //int *ptr5 = NULL;
+  //if(ptr5 != NULL)
+ // {
+ //   int x = 10 + *ptr5;
+  //  printf("%d\n", x);
+ // }
 
   /* Step 1 */
   ptr1 = &value;
