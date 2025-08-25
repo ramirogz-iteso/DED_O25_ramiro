@@ -5,7 +5,7 @@
 #define CLEAR printf("\033[0;0H\033[2J");
 
 void ex1_pointers_size();
-//void ex2_playing_with_pointers();
+void ex2_playing_with_pointers();
 
 int main()
 {
@@ -17,7 +17,7 @@ int main()
   printf("=+=+=+ # # # # =+=+=+ # # # # =+=+=+ \n");
   // COMPLETE EXCERSICE ex_derefencing pointers HERE:
   printf("... complete your excersice ....\n");
-  //ex2_playing_with_pointers();
+  ex2_playing_with_pointers();
   printf("=+=+=+ # # # # =+=+=+ # # # # =+=+=+ \n\n");
   return 0;
 }
@@ -107,12 +107,13 @@ void ex1_pointers_size()
   
 }
 
+
 /* Ex 2: Create a new function (call it from the main loop) 
 that does the following:
 
-Declare 1 int variable.
 Declare 3 int pointers variables.
-Modify the variables' value by using a different pointer each time.
+Declare 1 int variable.
+Modify the variable value by using a different pointer each time.
 
 Step 1:
   Assign initial value of 10
@@ -129,6 +130,49 @@ OUTPUT sample
 ptr1 lives in _____________ points to ____________ that cointains _______
 
 see what happens if you use the * on a pointer that is not intialized
-Finally print the value of the variable using a simple printf
 
+Finally print the value of the variable like normal.
 */
+void ex2_playing_with_pointers()
+{
+  int * ptr1; 
+  int * ptr2;
+  int * ptr3;
+  int value;
+  printf(" = = = = = Ex02 = = = = = = \n");
+
+  int *ptr5 = NULL;
+  if(ptr5 != NULL)
+  {
+    int x = 10 + *ptr5;
+    printf("%d\n", x);
+  }
+
+  /* Step 1 */
+  ptr1 = &value;
+  *ptr1 = 10;
+  printf("ptr1 lives in %p points to %p that contains %d\n",
+          &ptr1, ptr1, *ptr1);
+
+  /* Step 2 */
+  ptr2 = &value;
+  *ptr2 = *ptr2 * 2;
+   printf("ptr2 lives in %p points to %p that contains %d\n",
+          &ptr2, ptr2, *ptr2);
+
+  /* Step 3 */
+  ptr3 = ptr2;
+  *ptr3+=5;
+  printf("ptr3 lives in %p points to %p that contains %d\n",
+          &ptr3, ptr3, *ptr3);
+
+  printf("Value = %d\n", value);
+
+  value = 999999;
+
+  int * ptr4 = ptr3;
+  printf("printing a big int with an int pointer %d\n", *ptr4 );
+
+  char * cptr = (char*) ptr4;
+  printf("printing a big int with an char pointer by mistake %d\n", *cptr );
+}

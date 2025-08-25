@@ -15,4 +15,3 @@ del semestre pasado.
 Comenzamos con "Introduction to pointers.pptx" ya se encuentra la presentacion en
 teams y quedo de tarea leer y tratar de avanzar hasta donde les sea posible el
 archivo pointer_basic.c
-
