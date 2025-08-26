@@ -17,6 +17,10 @@ Create a blackjack function that:
   -If the sum is 21, set the FLAG to = 'W' (winner)
 */
 
+//prototypes:
+// firma = que recibe, como se llama y que devuelve
+int blackjack(int, int *, char *);
+
 int main()
 {
 
@@ -33,11 +37,61 @@ int main()
     Call and test your program here */
   char flag = '0';  //init value
 
-  int result; 
-  //result = blackjack( /*COMPLETE*/ );
+  int result = 100; 
+
+  int a = -100;
+  int b = 10;
+
+  printf("la direccion de la variable b es %p\n", &b);
+
+  result = blackjack( a, &b, &flag);
 
   //Validate that the flag was correctly set, try it with different
   //numbers.
+  printf("funcion regreso %d , la suma fue %d  y %c\n", result, b, flag );
   
   return 0;
 }
+
+              //valor.     /referencia
+int blackjack (int n, int *n2, char *letra)
+{
+  printf("argument: 1 %d\n", n);
+  printf("argument: 2 %p y contiene %d\n", n2, *n2);
+  printf("argument: 3 %p y contiene %c\n", letra, *letra);
+
+  *n2 = n + *n2;
+  (*n2 == 21) ? (*letra = 'W') : (*letra = 'L');
+    
+  if(*n2 > 0) //0x16dc9ee83
+    return 1;
+  else
+    return 0;
+
+  //  (si esto se cumple) ? lo quesi : lo que no;
+}
+
+/*
+int blackjack (int n, int *n2, char *letra)
+{
+  printf("argument: 1 %d\n", n);
+  printf("argument: 2 %p y contiene %d\n", n2, *n2);
+  printf("argument: 3 %p y contiene %c\n", letra, *letra);
+
+  int result = n + *n2;
+  int to_return;
+  if (result > 0)
+    to_return = 1;
+  else
+    to_return = 0;
+
+  *n2 = result;
+  
+  if (*n2 == 21)
+    *letra = 'W';
+  else
+    *letra = 'L';
+
+  return to_return;
+}
+*/

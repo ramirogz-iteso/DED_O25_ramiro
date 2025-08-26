@@ -135,7 +135,7 @@ Finally print the value of the variable like normal.
 */
 void ex2_playing_with_pointers()
 {
-  int * ptr1; 
+  int * ptr1;
   int * ptr2;
   int * ptr3;
   int value;
@@ -156,6 +156,7 @@ void ex2_playing_with_pointers()
 
   /* Step 2 */
   ptr2 = &value;
+  ptr2 = ptr1;
   *ptr2 = *ptr2 * 2;
    printf("ptr2 lives in %p points to %p that contains %d\n",
           &ptr2, ptr2, *ptr2);

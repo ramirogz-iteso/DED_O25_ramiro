@@ -14,8 +14,7 @@
 
     excercise : blackjack.c
 */
-
-int sum(int, int, int *);
+int sum(int, int,   int *);
 #define TRUE 1
 #define FALSE 0
 typedef int boolean;

@@ -15,3 +15,9 @@ del semestre pasado.
 Comenzamos con "Introduction to pointers.pptx" ya se encuentra la presentacion en
 teams y quedo de tarea leer y tratar de avanzar hasta donde les sea posible el
 archivo pointer_basic.c
+
+Clase 3:
+Hoy revisamos el primer uso practico para apuntadores: 
+Paso por valor vs paso por referencia a funciones, pueden checar el archivo 
+value_vs_reference.c y trabajamos juntos en value_vs_reference_practice.c 
+(ejercicios swap y blackjack).
