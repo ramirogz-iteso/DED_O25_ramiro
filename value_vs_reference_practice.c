@@ -7,19 +7,38 @@
   whatever what inside one variable should be inside the other and viceversa 
 */
 
+void swap(int *x, int *y)
+{
+  int tmp = *x;
+  *x=*y;
+  *y=tmp;
+  printf("\tInside Swap : The value of x = %d, and y = %d\n", *x,*y);
+}
+
+
 /* Excercise 2 : blackjack
 
 Create a blackjack function that:
-  -receives 2 numbers and a FLAG (char) 
+  -receives 2 numbers and a FLAG (char)
   -returns 1 of the sum of the numbers is positive (greater than 0).
   -returns 0 if the sum of the numbers is negative.
   -Stores the sum of the two numbers in number2.
   -If the sum is 21, set the FLAG to = 'W' (winner)
 */
+int blackjack(int num1, int *num2, char *flag)
+{
+  int result = 0;
+  
+  if(num1 + *num2 > 0)
+    result = 1;
 
-//prototypes:
-// firma = que recibe, como se llama y que devuelve
-int blackjack(int, int *, char *);
+  *num2 = num1 + *num2;
+  if(*num2 == 21)
+    *flag = 'W';
+
+  return result;
+
+}
 
 int main()
 {
@@ -28,70 +47,20 @@ int main()
   int num1 = 1;
   int num2 = 20;
 
-  //CALL YOUR SWAP FUNCTION HERE:
-
-  //Validate that the numbers were swaped:
+  swap(&num1, &num2);
   printf("num1 = %d num2 = %d\n", num1, num2);
 
   /* Exercise 2:  Blackjack 
     Call and test your program here */
+
   char flag = '0';  //init value
+  int result = blackjack( num1, &num2, &flag);
 
-  int result = 100; 
-
-  int a = -100;
-  int b = 10;
-
-  printf("la direccion de la variable b es %p\n", &b);
-
-  result = blackjack( a, &b, &flag);
-
-  //Validate that the flag was correctly set, try it with different
-  //numbers.
-  printf("funcion regreso %d , la suma fue %d  y %c\n", result, b, flag );
+  if(flag == 'W') printf("We have a winner!\n");
+  if (result)
+    printf("Sum is POSITIVE = %d\n", num2);
+  else
+    printf("Sum is NEGATIVE = %d\n", num2);
   
   return 0;
 }
-
-              //valor.     /referencia
-int blackjack (int n, int *n2, char *letra)
-{
-  printf("argument: 1 %d\n", n);
-  printf("argument: 2 %p y contiene %d\n", n2, *n2);
-  printf("argument: 3 %p y contiene %c\n", letra, *letra);
-
-  *n2 = n + *n2;
-  (*n2 == 21) ? (*letra = 'W') : (*letra = 'L');
-    
-  if(*n2 > 0) //0x16dc9ee83
-    return 1;
-  else
-    return 0;
-
-  //  (si esto se cumple) ? lo quesi : lo que no;
-}
-
-/*
-int blackjack (int n, int *n2, char *letra)
-{
-  printf("argument: 1 %d\n", n);
-  printf("argument: 2 %p y contiene %d\n", n2, *n2);
-  printf("argument: 3 %p y contiene %c\n", letra, *letra);
-
-  int result = n + *n2;
-  int to_return;
-  if (result > 0)
-    to_return = 1;
-  else
-    to_return = 0;
-
-  *n2 = result;
-  
-  if (*n2 == 21)
-    *letra = 'W';
-  else
-    *letra = 'L';
-
-  return to_return;
-}
-*/
