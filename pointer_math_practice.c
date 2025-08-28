@@ -37,7 +37,6 @@ void ex01()
 */
 }
 
-
 void ex02()
 {
   /* Excercise 02:

@@ -10,7 +10,7 @@
 /* Excercise 2 : blackjack
 
 Create a blackjack function that:
-  -receives 2 numbers and a FLAG (char)
+  -receives 2 numbers and a FLAG (char) 
   -returns 1 of the sum of the numbers is positive (greater than 0).
   -returns 0 if the sum of the numbers is negative.
   -Stores the sum of the two numbers in number2.

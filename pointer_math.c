@@ -11,12 +11,12 @@ void structs();
 int main()
 {
   CLEAR
-  //pointers_math();
-  //getchar();
+  pointers_math();
+  getchar();
 
   CLEAR
   overflow();
-  //getchar();
+  getchar();
 
   CLEAR
   structs();
@@ -27,7 +27,6 @@ int main()
 void pointers_math()
 {
   int numbers[5] = {99, 100, 101, 102, 105};
-
   //int * i_ptr = &numbers[0];
   int * i_ptr = numbers;
 
@@ -37,6 +36,7 @@ void pointers_math()
 
     WE CANT DO numbers++
   */
+
 
   printf("Number = %p\n", i_ptr);
   i_ptr++;
@@ -58,10 +58,11 @@ void pointers_math()
   printf("\n");
 
   /* How can we do the above for loop, without "[]" ?*/
+  printf("----------------\n");
   int * a_pointer_to_int = numbers;
-  for(int i = 0; i<5; i++, a_pointer_to_int++)
+  for(int i = 0; i<10; i++, a_pointer_to_int++)
   {
-    printf("%p - %d ", a_pointer_to_int, *a_pointer_to_int);
+    printf("%p - %d\n", a_pointer_to_int, *a_pointer_to_int);
     //i_ptr++;
   }
   printf("\n");
