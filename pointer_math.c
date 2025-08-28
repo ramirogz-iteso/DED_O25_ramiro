@@ -26,6 +26,21 @@ int main()
 
 void pointers_math()
 {
+
+  int array[5] = {10, 20, 30, 40, 50};
+
+  for (int i = 0; i<5; i++)
+  {
+    printf("array[%d] = %d lives at %p\n", i, array[i], &array[i]);
+    getchar();
+  }
+
+  //add address 
+  //printf("array[%d]=%d lives at %p\n", i, array[i], &array[i]);
+
+  printf("===================\n");
+  getchar();
+
   int numbers[5] = {99, 100, 101, 102, 105};
   //int * i_ptr = &numbers[0];
   int * i_ptr = numbers;
@@ -39,14 +54,17 @@ void pointers_math()
 
 
   printf("Number = %p\n", i_ptr);
+  getchar();
+
   i_ptr++;
-  getchar();
   printf("Number = %d\n", *i_ptr);
-  i_ptr = i_ptr + 3;
   getchar();
+  
+  i_ptr = i_ptr + 3;
   printf("Number = %d\n", *i_ptr);
   getchar();
   i_ptr--;
+  getchar();
   printf("Number = %d\n", *i_ptr);
   getchar();
 
