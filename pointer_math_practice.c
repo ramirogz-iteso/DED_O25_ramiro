@@ -15,8 +15,19 @@ void prueba(int *, int);
 
 int main()
 {
-  ex01();
-  ex02();
+  //ex01();
+  //ex02();
+
+
+  int x = 5;
+  int *i = &x;
+
+  int *iptr = NULL;
+
+  if(i != NULL)
+    printf("%d \n", *i);
+
+  return 0;
 
   char string[50];
   char *ret; 
