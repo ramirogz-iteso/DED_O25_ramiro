@@ -1,97 +1,105 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+/*==============================
+      STRUCTS IN C
+      In case you forgot... 
+=================================*/
 
-typedef struct student {
-    char name[100];
-    int age;
-    int id;
-    float weight;
-  } student;
+/* 
+   typedef : allows to declare a new datatype, base on existing ones
+   
+   Syntax
+    a)  
+        typedef struct name_of_struct
+        {
+          variables
+        } name_ofStruct;
+    
+    or b)
+        struct name_of_struct
+        {
+          variables
+        }
+        typedef struct name_of_struct
 
-typedef int dinero;
-//TYPEDEF {knownTYPE} [NEW_INVENTED_TYPE]
+    After this typedef, we will be able to create structs or struct pointers
+    easily as this:
+    
+        name_of_struct s1;         // a structure of name_struct type  (.)
+        name_of_struct * ptr_s;    // a pointer to a struct (->)
 
-void dump_student(student * s)
+    https://www.educative.io/answers/how-to-use-the-typedef-struct-in-c
+    
+*/
+/* Create  a struct node, with a typedef; */
+typedef struct node
 {
-  printf("El student: %s, tiene %d anios\n",
-          s->name, s->age);
+  int n;    // int number // 4
+  float f;  // a float    // 4
+  char *s;  // a char     // 8
+  int i;                  // 4
+  char c2;                // 1
+  char name[100];         // 100 times 1
+} node;
 
-  s->age = 100;
+void print_node(node *);
 
-  printf("La nueva edad es %d\n", s->age);
+/* quiz , what is the size of the struct?
+          what is the size of the pointer to the struct?
+*/ 
 
-}
-
-//PROTOTYPE FUNCTION
-int sum(int, int);
-char convertLowerToUpper(char);
-
-//{ RETURN_TYPE [FUNC_NAME] ([ARGUMENTOS...])}
-//Lista de tipos
-int main()
+int structs()
 {
+  printf(" = = = = = = = = = = = = = = = = = = = \n");
+  node n;
 
-  int num1 = 100;
-  int num2 = 200;
-  int result;
-
-  char minuscula = 'f';
-  char mayuscula = convertLowerToUpper(minuscula);
-  printf("%c\n", mayuscula);
-
-  result = sum(num1, num2);
-  printf("result = %d\n", result);
+  //the old way:
+  n.n = 5;
+  n.f = 2.999;
+  
+  //now with a pointer to a struct!
+  node *ptr_n = &n;
+  printf("sizeof struct :%ld , sizeof ptr %ld\n",
+          sizeof(node), sizeof(ptr_n));
 
   getchar();
 
-  // Datos primarios
-  int x;
-  //
-  int arrname[200];
-  //{TYPE} NAME_ARRAY [NUM_ELEMENTS];
+  /* To access the elements of a struct we use the "." POINT operator */
+  printf("node : %d, %f and %s \n",  n.n, n.f, n.s);
+  
+  /* the only difference, when we have a pointer*/
+  printf("node : %d, %f and %s \n", ptr_n->n, ptr_n->f, ptr_n->name);
 
-  char y;
-  float z;
-  long a;
+  getchar();
+  /* Lets create new node, this time complete*/
+  node n2;
+  ptr_n = &n2;
 
-  // Datos compuesto
-  int numeros[10];  //arreglo de 10 enteros
-  char myname[200]; //arreglo de 200 char 
+  ptr_n->n = 100;
+  ptr_n->f = 3.1416;
+  char letter = 'C';
+  ptr_n->s = &letter;
+  printf("How do you want to name this node?:\n");
+  scanf("%s", ptr_n->name);
+  printf("node : %d, %f and %s \n", ptr_n->n, ptr_n->f, ptr_n->name);
+  getchar();
 
-  //struct:
-  // Agrupacion de multiples tipos de datos
+  /* last step, can funcitons receive pointers to struct? of course!*/
+  printf("Lets now call a function to do the same:");
+  getchar();
+  print_node(ptr_n);
 
-  student s1;
-
-  s1.age = 25;
-  s1.id = 2025;
-  s1.weight = 70.5;
-  strcpy(s1.name, "Ramiro");
-
-  // arreglo de students
-  //{TYPE} NAME_ARRAY [NUM_ELEMENTS];
-  student iteso[25000]; 
- 
-  student * pointer_to_s = &s1;
-
-  dump_student(pointer_to_s);
-  printf("El student: %s, tiene %d anios\n",
-          s1.name, s1.age);
-
+  /* can a function modify and full a struct? of course the sky is the limit*/
 
   return 0;
 }
 
-int sum(int n1, int n2)
+void print_node(node * p)
 {
-  int result = n1 + n2;
-  //printf("result = %d\n", result);
-  return result;
-  //n1 + n2;
+  printf("PRINT_NODE_FUNCT: node : %d, %f and %s \n", p->n, p->f, p->name);
 }
 
-char convertLowerToUpper(char lower)
+int main()
 {
-  return lower - 32;
+  structs();
 }

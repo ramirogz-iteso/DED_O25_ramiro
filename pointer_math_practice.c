@@ -9,12 +9,36 @@ void ex02();
 void upper_to_lower(char*);
 //void ex03();
 //void ex04();
+void isBinary();
+
+void prueba(int *, int);
 
 int main()
 {
-  //RUN/try your functions here:
- 
+  ex01();
+  ex02();
+
+  char string[50];
+  char *ret; 
+
+  printf("Enter your name: ");
+  ret = fgets(string, 50,stdin);
+  upper_to_lower(string);
+  puts(string);
+
+  //isBinary();
   return 0;
+}
+
+void prueba (int * a, int len)
+{
+  printf("Funcion de prueba que recibe un arreglo\n");
+  //printf("%ld", sizeof(a));
+  getchar();
+  for(int i = 0; i<len; i++, a++)
+  {
+    printf("%d \n", *a);
+  } 
 }
 
 void ex01()
@@ -35,6 +59,37 @@ void ex01()
     array[2] = 5 -> addr = 0x00008
     array[3] = 6 -> addr = 0x0000B
 */
+  int nums[10] = {1,2,3,4,5,6,7,8,9,10};
+
+  int * iptr = nums;
+
+  int lenarray = sizeof(nums) /  sizeof(int);
+  getchar();
+
+  prueba(&nums[0], lenarray);
+
+  for(int i = 0; i<10; i++)
+  {
+    printf("array[%d] = %d -> addr = %p\n",
+      i, *iptr, iptr);
+
+    //printf("with brackets %d\n", iptr[i]);
+     iptr++;
+  } 
+
+}
+
+int mylenght(char * arr)
+{
+  char *ptr = arr;
+  int count = 0;
+  
+  while(*ptr != '\0')
+  {
+    count++;
+    ptr++;
+  }
+  return count;
 }
 
 void ex02()
@@ -49,9 +104,12 @@ void ex02()
 */
   char name[400];
   int ret;
-  
-  //TRY ME HERE:
 
+  printf("Please give me your name: \n");
+  ret = scanf("%s", name);
+
+  printf("My name is %s\n", name);
+  printf("len = %d\n", mylenght(name));
 }
 
 /* More practice excerises (similar to Ex02)
@@ -66,8 +124,28 @@ void ex02()
   
 */
 
+void upper_to_lower(char * string)
+{
+  char *cptr = string;
+  
+  while (*cptr != '\0')
+  {
+    if(*cptr < 97 && *cptr >= 65)
+      *cptr+=32;
+
+    cptr++;
+  }
+}
+
 /* Exercise 04
   Implement an isBinary function that receives a string and determines
   if its a binary number (must be formed of only 1s and 0s).
 */
   
+void isBinary()
+{
+  char string[10] = "1010a10101";
+  char *cptr = &string[0];
+
+
+}

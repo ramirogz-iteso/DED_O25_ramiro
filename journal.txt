@@ -21,3 +21,7 @@ Hoy revisamos el primer uso practico para apuntadores:
 Paso por valor vs paso por referencia a funciones, pueden checar el archivo 
 value_vs_reference.c y trabajamos juntos en value_vs_reference_practice.c 
 (ejercicios swap y blackjack).
+
+Clase 4:
+Pointer math.c
+Pointer_math_practice.c
