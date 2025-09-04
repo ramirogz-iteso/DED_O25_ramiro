@@ -17,6 +17,13 @@
   ex.  vehicle_set(car_ptr, "Ford", 2020);
        vehicle_set(&vehicle_array[3], name1var, year);
 
+  Note how vehicle_set:
+    -returns nothing
+    -receive 3 things:
+      o. 1 pointer to a vehicle to modify (reference)
+      o. the Name (value)
+      o. the Year (value)
+
   PRACTICE as many combinations or way to pass your vehicles to your function
   Will it be a good idea to verify and print the contents after each vehicle_set?
   DEBUG your code.
@@ -24,7 +31,8 @@
   Feel free to either use preset values, or ask again the user if you want.
 
   Finally, create a function called "print_lot" that receives the entire vehicle 
-  array and WITHOUT USING BRACKETS, prints in the screen all the cars. 
+  array and WITHOUT USING BRACKETS, prints in the screen all the cars
+  
   The same function should return which car is the Oldest of the lot, to do this:
      -return, as an integer the year
      -write the name of the car, in an output buffer passed by the user.
@@ -46,8 +54,11 @@
   SEGMENTATION FAULT
 
 */
+
 #include <stdio.h>
 #include <string.h>
+
+#define MAX_CARS 4
 
 typedef struct vehicle
 {
@@ -55,8 +66,78 @@ typedef struct vehicle
   int year;
 } vehicle;
 
+void print_lot ( vehicle *);
+int print_lot_find_old ( vehicle *, char *);
+void vehicle_set ( vehicle *, char *, int );
+
 int main()
 {
+   vehicle cars[4];
+   char v4name[20];
+   int v4year;
+   char oldest[20];
+  
+   //step 1: init vehicle # 1 without pointers:
+   strcpy(cars[0].brand, "Honda");
+   cars[0].year = 2013;
 
+   //step 2: set up vehicles 2 and 3 using my function and static data
+   vehicle *vptr = &cars[1];
+   vehicle_set(vptr, "TOYOTA", 2022);
+   vehicle_set(&cars[2], "FORD", 1990);
+
+   //step 3: set up the last vehicle with user input
+   printf("Enter the name of the last vehicle: ");
+   scanf("%s", v4name);
+   printf("Enter the model (year) of the last vehicle: ");
+   scanf("%d", &v4year);
+   vehicle_set(vptr+2, v4name, v4year); //where is vptr pointing to?
+   
+   //step 4: PRINT ALL!
+   print_lot(cars);
+   /*
+   printf("Hello world! I have only 1 vehicle\n");
+   for(int x = 0; x<4; x++)
+     printf("name: %s, year %d\n", cars[x].brand, cars[x].year);
+
+   */  
    return 0;
+}
+
+void vehicle_set(vehicle * v, char * c, int y)
+{
+  strcpy(v->brand, c);
+  v->year = y;
+}
+
+void print_lot( vehicle *v_arr)
+{
+  vehicle * vptr = v_arr;
+  for(int x = 0; x < MAX_CARS; x++)
+  {
+    printf("vehicle[%d] %s - %d\n", x, vptr->brand, vptr->year);
+    vptr++;
+  }
+}
+int print_lot_find_old( vehicle *v, char * oldest_name)
+{
+  vehicle * vptr = v;
+  int oldest_year = v->year;
+  int oldest_idx = 0;
+
+  printf(" ==== PRINT LOT: ===\n");
+  for(int x = 0; x < MAX_CARS; x++)
+  {
+   printf("comparing %d with %d\n", vptr->year, oldest_year);
+   if(vptr->year < oldest_year)
+   {
+      oldest_year = vptr->year;
+      oldest_idx = x;
+   }
+   printf("\tname: %s, year %d\n", vptr->brand, vptr->year);
+   vptr++;
+  }
+  printf("Oldest found at idx [%d]\n", oldest_idx);
+  strcpy(oldest_name, v[oldest_idx].brand);
+  return oldest_year;
 }
