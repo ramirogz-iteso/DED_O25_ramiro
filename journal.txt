@@ -25,3 +25,15 @@ value_vs_reference.c y trabajamos juntos en value_vs_reference_practice.c
 Clase 4:
 Pointer math.c
 Pointer_math_practice.c
+
+Class 5:
+Revisamos Pointer_math_practice.c
+Repaso de como pasar arreglos de a funciones
+structs con pointers ( .   ->)
+structs_practice_cars.
+
+Class 6:
+Hoy revisamos el resultado de structs_practice_cars.
+Dejamos el resto de la clase para dudas y completar todos los ejercicios de 
+practice que llevamos. Se paso el PPT de punteros a funcion, revisenlo si queiren
+tener ventaja la proxima clase.
