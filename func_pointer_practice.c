@@ -44,6 +44,12 @@ typedef struct student
 void process_student(student * s1)
 {
   s1->f(s1->name, s1->grade);
+  /*
+  int grade = s1->grade;
+  ...
+  greeting stored_function = s1->f;
+  stored_function(name, grade);
+  */
 }
 
 /* CHALLENGE: 
@@ -79,16 +85,15 @@ int main()
   char name_student[10] = "Ramiro";
   int grade;
   //printf("Enter your grade... ");
-  //int ret = scanf("%d", &grade);
+  int ret = scanf("%d", &grade);
 
   /* PART #1 Complete the instructions provided: 
      create the function pointer  and call process_student_grade */
-  // greeting f1 = happy
-  //f1(name, grade);
+  //greeting f1 = happy;
   
-  //greeting iteso_greetings_fun[3] = {mad, normal, happy};
+  greeting iteso_greetings_fun[3] = {mad, normal, happy};
 
-  //process_student_grade( iteso_greetings_fun,  name_student, grade );
+  process_student_grade( iteso_greetings_fun,  name_student, grade );
 
 
   /* ========================================================*/
