@@ -34,6 +34,18 @@ void happy (char * name, int grade)
 
 typedef void (* greeting) (char* name, int grade);
 
+typedef struct student
+{
+  char name[10];
+  int grade;
+  greeting f;
+} student;
+
+void process_student(student * s1)
+{
+  s1->f(s1->name, s1->grade);
+}
+
 /* CHALLENGE: 
   On the main method, create an ARRAY of 3 function pointers
   Store each one of the function pointers in the following positions :  */
@@ -64,19 +76,19 @@ void process_student_grade(greeting *f, char *name, int grade)
   
 int main()
 {
-  char student[10] = "Ramiro";
+  char name_student[10] = "Ramiro";
   int grade;
-  printf("Enter your grade... ");
-  int ret = scanf("%d", &grade);
+  //printf("Enter your grade... ");
+  //int ret = scanf("%d", &grade);
 
   /* PART #1 Complete the instructions provided: 
      create the function pointer  and call process_student_grade */
   // greeting f1 = happy
   //f1(name, grade);
   
-  greeting iteso_greetings_fun[3] = {mad, normal, happy};
+  //greeting iteso_greetings_fun[3] = {mad, normal, happy};
 
-  process_student_grade( iteso_greetings_fun,  student, grade );
+  //process_student_grade( iteso_greetings_fun,  name_student, grade );
 
 
   /* ========================================================*/
@@ -102,7 +114,13 @@ int main()
   */
 
   //YOUR CODE HERE:
-  //process_student(/*COMPLETE*/);
+  student s1;
+  strcpy(s1.name, "Carlos");
+  s1.grade = 100;
+  s1.f = happy;
+
+
+  process_student(&s1);
 
 
 }
