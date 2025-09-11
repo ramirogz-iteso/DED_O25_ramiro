@@ -32,6 +32,8 @@ void happy (char * name, int grade)
          name, grade);
 }
 
+typedef void (* greeting) (char* name, int grade);
+
 /* CHALLENGE: 
   On the main method, create an ARRAY of 3 function pointers
   Store each one of the function pointers in the following positions :  */
@@ -49,10 +51,15 @@ void happy (char * name, int grade)
     Grade < 60, run MAD.
     For everyone else, run NORMAL.
 */
-
-void process_student_grade(/*COMPLETE*/)
+                  //.       chorizo fun ptr,   char *  ,  int 
+void process_student_grade(greeting *f, char *name, int grade)
 {
-
+  if(grade < 60)
+    f[MAD](name, grade);
+  else if (grade >= 60 && grade < 100)
+    f[NORMAL](name, grade);
+  else
+    f[BEST](name, grade);
 }
   
 int main()
@@ -64,8 +71,12 @@ int main()
 
   /* PART #1 Complete the instructions provided: 
      create the function pointer  and call process_student_grade */
+  // greeting f1 = happy
+  //f1(name, grade);
+  
+  greeting iteso_greetings_fun[3] = {mad, normal, happy};
 
-  process_student_grade (/*COMPLETE*/);
+  process_student_grade( iteso_greetings_fun,  student, grade );
 
 
   /* ========================================================*/
