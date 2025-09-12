@@ -37,3 +37,16 @@ Hoy revisamos el resultado de structs_practice_cars.
 Dejamos el resto de la clase para dudas y completar todos los ejercicios de 
 practice que llevamos. Se paso el PPT de punteros a funcion, revisenlo si queiren
 tener ventaja la proxima clase.
+
+Class 7:
+Revisamos la teoria y practica de punteros a funcion.
+Function pointers: 6. Function Pointers.pptx
+func_pointer_basics.c y de ejercicio func_pointer_practice (alumnos).
+
+Class 8:
+Revisar el resultado de func_pointer_practice y comenzamos con el tema de 
+dobles punteros (dptr) que sera importante para arreglos de arreglos, arreglos2D,
+matrices etc. 
+Revisamos double_pointer_intro.pptx y dptr_intro.c y array_pointers_dptr.c
+IMPORTANTE, revisar este tema a profundidad porque se vuelve base para el resto
+del semestre.
