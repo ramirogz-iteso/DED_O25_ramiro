@@ -14,6 +14,14 @@
 
 void array_pointers_basics();
 
+void print_dptr(int **d)
+{
+  printf("print_dtpr():\n");
+  printf("%p\n", d[0]);
+  d++;
+  printf("%d\n", **d);
+}
+
 int main()
 {
   array_pointers_basics();
@@ -48,6 +56,14 @@ void array_pointers_basics()
   iptr++;
   printf("value arr0[2] = %d at addr %p\n", *iptr, iptr);
 
+   iptr = arr1;
+    //using pointer arithmetic, we can traverse the array
+  printf("value arr0[0] = %d at addr %p\n", *iptr, iptr);
+  iptr++;
+  printf("value arr0[1] = %d at addr %p\n", *iptr, iptr);
+  iptr++;
+  printf("value arr0[2] = %d at addr %p\n", *iptr, iptr);
+
   getchar();
 
   /* all of the above can also be done in a for loop if we know the size of the
@@ -62,7 +78,7 @@ void array_pointers_basics()
 
   /* what if we want an array that stores arr[0], arr[1], and arr[2])*/
  
-  iptr = arr2;
+  iptr = arr2;          //[0].  [1].     [i]
   int * ptr_array[3] = { arr0, &arr1[0], iptr};
   // { arr0, arr1, arr2}; o inicializarlo despues.
 
@@ -83,6 +99,9 @@ void array_pointers_basics()
   // to traverse an array, you need a pointer, of the data stored in the array
 
   int **dptr = ptr_array; //&ptr_array[0]
+  print_dptr(dptr);
+
+  getchar();
   printf("Address stored on pointer dptr:  \n");
   for(int i = 0;i<3;i++)
   {
@@ -168,4 +187,3 @@ void array_pointers_basics()
     c++;
   }
 }
-
