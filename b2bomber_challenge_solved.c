@@ -23,6 +23,13 @@ int main()
   excercise02();
 }
 
+void holamundo()
+{
+  printf("ME LLAMARON!\n");
+}
+
+typedef void (*funcion)(void);
+
 void excercise01()
 {
   //Convert the following FOR loop, so it DOES NOT use brackets [ ].
@@ -45,25 +52,24 @@ void excercise01()
 
 void plane_to_car(void ** thing)
 {
-  void **ptr = thing;
+  char * c;
+  int * i;
+  char * n;
+  funcion p;
 
-  char *letter = (char *)ptr[0];
-  int  *nump   = (int *)ptr[1];
-  char *name   = (char *)ptr[2];
+  printf("Entrando a mi funcion plane to car\n");
 
-  /* using pointer math 
-  void **ptr = thing;
+  c = (char *) thing[0];
+  *c = 'F';
+  *(int *)thing[1] = 1;
+  strcpy((char*)thing[2] , "Car");
+  p = (funcion)thing[3];
 
-  char *letter = (char *)*ptr;
-  ptr++;
-  int  *nump   = (int *)(*ptr);
-  ptr++;
-  char *name   = (char *)*ptr;
-  */
+  p();
 
-  *letter = 'F';
-  *nump = 1;
-  strcpy(name, "Car");
+  printf("saliendo a mi funcion plane to car\n");
+
+
 }
 
 void excercise02()
@@ -72,7 +78,14 @@ void excercise02()
   int num2 = 2;
   char name[20] = "Bomber";
 
-  // a B2 Bomber from US ARMY!! Love that plane
+  printf("la direccion de letter es : %p\n", &letter);
+
+  //.  void *   void *      void * 
+  //  &char     &int        &char
+  //     8        8            8
+  // [  'B'.  ,    2 ,     "Bomber"       ]
+
+  // a B2 Bomber from US ARMY!! Love that plan
 
   /* Create an array that contains all 3 components above:
     [0] the Letter
@@ -90,9 +103,32 @@ void excercise02()
 
   // Create you array and CALL YOUR FUNCTION HERE:
   // START :
-  void *array[3] = {&letter, &num2, name};
-  plane_to_car(array);
-  // END :
+  //void *array[3] = {&letter, &num2, name};  A
+  void * array[4];
+  funcion f1 = holamundo;
+
+  // B
+  array[0] = (void *)&letter;
+  array[1] = (void *)&num2;
+  array[2] = (void *)name;
+  array[3] = (void *)f1;
+
+  void * ptr1;
+  void * ptr2;
+  void * ptr3;
+
+  ptr1 = &letter;
+  ptr2 = &num2;
+  ptr3 = name;
+
+  array[0] = ptr1; 
+  array[1] = ptr2; 
+  array[2] = ptr3;
+
+  void ** dptr = array;
+
+
+  plane_to_car(dptr);
   
   // IF done right, the following should print "F1 Car"
   // DO NOT MODIFY this print, notice how are printing the original variables?
