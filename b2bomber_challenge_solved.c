@@ -23,13 +23,6 @@ int main()
   excercise02();
 }
 
-void holamundo()
-{
-  printf("ME LLAMARON!\n");
-}
-
-typedef void (*funcion)(void);
-
 void excercise01()
 {
   //Convert the following FOR loop, so it DOES NOT use brackets [ ].
@@ -55,21 +48,48 @@ void plane_to_car(void ** thing)
   char * c;
   int * i;
   char * n;
-  funcion p;
 
-  printf("Entrando a mi funcion plane to car\n");
+  void **ptr = thing;
 
+  *(char *)*ptr = 'Z';
+  ptr++;
+  *(int *)*ptr = 5;
+  ptr++;
+  strcpy((char*)*ptr , "NAVE");
+
+  /*
   c = (char *) thing[0];
   *c = 'F';
   *(int *)thing[1] = 1;
   strcpy((char*)thing[2] , "Car");
-  p = (funcion)thing[3];
+  */
 
-  p();
-
-  printf("saliendo a mi funcion plane to car\n");
+  
 
 
+
+
+
+  /*void **ptr = thing; 
+
+  char *letter = (char *)ptr[0];
+  int  *nump   = (int *)ptr[1];
+  char *name   = (char *)ptr[2];
+  */
+
+  /* using pointer math 
+  void **ptr = thing;
+
+  char *letter = (char *)*ptr;
+  ptr++;
+  int  *nump   = (int *)(*ptr);
+  ptr++;
+  char *name   = (char *)*ptr;
+  */
+  /*
+  *letter = 'F';
+  *nump = 1;
+  strcpy(name, "Car");*/
 }
 
 void excercise02()
@@ -104,14 +124,12 @@ void excercise02()
   // Create you array and CALL YOUR FUNCTION HERE:
   // START :
   //void *array[3] = {&letter, &num2, name};  A
-  void * array[4];
-  funcion f1 = holamundo;
+  void * array[3];
 
   // B
   array[0] = (void *)&letter;
   array[1] = (void *)&num2;
   array[2] = (void *)name;
-  array[3] = (void *)f1;
 
   void * ptr1;
   void * ptr2;
