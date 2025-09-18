@@ -1,0 +1,40 @@
+Prerequisitos (Programacion estructurada):
+  Funciones, como llamar y crear nuevas
+  Funciones que reciben y devuelven cosas
+  Arreglos simples (int, char, structs)
+  Como enviar arreglos a funciones.
+  Libreria String, strcpy.
+  Recomiendo hacer el ejercicio de warmup sin o lo hicieron al inicio
+
+1er Parcial de DED:
+  Apuntadores
+  Operador & y * (sacar direccion y desreferenciar)
+  Paso de Valor vs Referencia
+  Aritmetica de punteros (++, --, +1)
+    Saberse mover en un arreglo, usando solo 1 puntero
+    [ ] prohibidos
+
+  Apuntadores Structs (   .    vs    -> )
+  Punteros a Funciones. return_type (* name_ptr)([args...]);
+  Apuntador NULL y VOID
+  Apuntador a Apuntador (dptr)
+    arreglos de pointers.   ( * , * , * , * )
+    dptr =            ---->
+
+Tips: 
+  Ejercicio similar al de la cadena binaria
+  Ejercicio similar al reto de Hackerrank
+  Examen 100% Practico
+
+IMPORTANTE:
+  Examen disponible desde las 6:50am, limite 2 horas 5min (8:55am).
+  Si llegan 7:10... limit 8:55am
+  Examen sera en Hackerrank, si perdieron esa clase y no han utilizado
+  la herramienta por favor contactenme a la brevedad.
+  Pueden sacar, libros, hojas, impresiones de archivos.
+  TODO menos salirse de la plataforma de Hackerrank.
+  Conectar sus laptops a la luz
+
+
+LISTO
+
