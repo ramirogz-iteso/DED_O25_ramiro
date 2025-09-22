@@ -34,6 +34,12 @@ void array_pointers_basics()
   int arr1[3] = {3,4,5};
   int arr2[3] = {6,7,8};
 
+  //(int) * p = arr2;
+
+  //. A { [ * , * , *  ]   }
+
+  //int * * p2 = A
+
   /* super basics: lets remember how we traverse over a simple array
   using pointer arithmetic and remember basic rules:
 
@@ -98,7 +104,7 @@ void array_pointers_basics()
 
   // to traverse an array, you need a pointer, of the data stored in the array
 
-  int **dptr = ptr_array; //&ptr_array[0]
+  int * * dptr = ptr_array; //&ptr_array[0]
   print_dptr(dptr);
 
   getchar();

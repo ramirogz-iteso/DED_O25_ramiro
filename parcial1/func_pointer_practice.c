@@ -32,18 +32,31 @@ void happy (char * name, int grade)
          name, grade);
 }
 
+void ramiro(char * pet, int age)
+{
+  printf("the age of your pet %s is %d\n", pet, age);
+}
+
 typedef void (* greeting) (char* name, int grade);
 
 typedef struct student
 {
-  char name[10];
-  int grade;
-  greeting f;
+  char name[10];  //no sabes
+  int grade;   // no sabes 
+  greeting f; // no sabes... cualqier func reciba 1 char, un ent y devuelv void
 } student;
 
 void process_student(student * s1)
 {
+  char * name = s1->name;
+  int calif = s1->grade;
+  greeting funcion = s1->f;  
+
+  funcion(name, calif);
+
+
   s1->f(s1->name, s1->grade);
+
   /*
   int grade = s1->grade;
   ...
@@ -79,13 +92,26 @@ void process_student_grade(greeting *f, char *name, int grade)
   else
     f[BEST](name, grade);
 }
+
+void print_numbers(int * arreglo)
+{
+  printf("num 1 = %d\n", arreglo[0]);
+  printf("num 2 = %d\n", arreglo[1]);
+}
   
 int main()
 {
+ greeting pet_fun;
+    pet_fun = &ramiro; //ramiro
+
+  pet_fun("solin", 1);
+
+
   char name_student[10] = "Ramiro";
   int grade;
   //printf("Enter your grade... ");
   int ret = scanf("%d", &grade);
+
 
   /* PART #1 Complete the instructions provided: 
      create the function pointer  and call process_student_grade */
@@ -122,8 +148,12 @@ int main()
   student s1;
   strcpy(s1.name, "Carlos");
   s1.grade = 100;
-  s1.f = happy;
+  s1.f = mad;
 
+  student s2;
+  strcpy(s2.name, "Ramiro");
+  s2.grade = 55;
+  s2.f = mad;
 
   process_student(&s1);
 

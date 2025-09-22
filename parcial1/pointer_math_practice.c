@@ -70,9 +70,8 @@ void ex01()
     array[2] = 5 -> addr = 0x00008
     array[3] = 6 -> addr = 0x0000B
 */
+                       //int
   int nums[10] = {1,2,3,4,5,6,7,8,9,10};
-
-  int * iptr = nums;
 
   int lenarray = sizeof(nums) /  sizeof(int);
   getchar();
