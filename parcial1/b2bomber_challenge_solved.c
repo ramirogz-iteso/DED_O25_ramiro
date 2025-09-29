@@ -98,8 +98,6 @@ void f1(void ** p)
   int res = fun1(*n1, *n2);
 
   printf("%d %d %c %d\n", *n1, *n2, *n3, res);
-
-
 }
                  // typo dir primer
 void print_numbers( int * arreglo)

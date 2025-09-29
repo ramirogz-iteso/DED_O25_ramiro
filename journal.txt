@@ -50,3 +50,24 @@ matrices etc.
 Revisamos double_pointer_intro.pptx y dptr_intro.c y array_pointers_dptr.c
 IMPORTANTE, revisar este tema a profundidad porque se vuelve base para el resto
 del semestre.
+
+Class 9:
+
+
+Class 10:
+
+Class 11:
+EXAMEN PARCIAL 1
+
+Class 12:
+Retroalimentacion de examen Parcial 1 a detalle. Se deja tarea de recuperacion.
+Dudas de Proyecto. Y resto de la clase para tarbajar en los ejercicios Malloc2D
+y/o proyecto
+
+Class 13: 
+Revisamos ejercicios de Malloc, Malloc.c y los 4 ejercicios de las disapositivas.
+Presentacion de Proyectos en Clase.
+
+Class 14:
+Terminamos de ver Malloc en forma: malloc_ppt.c, malloc.c y comenzamos farm.c
+queda el ejercicio de granja de tarea.
