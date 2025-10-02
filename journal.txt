@@ -61,13 +61,13 @@ EXAMEN PARCIAL 1
 
 Class 12:
 Retroalimentacion de examen Parcial 1 a detalle. Se deja tarea de recuperacion.
-Dudas de Proyecto. Y resto de la clase para tarbajar en los ejercicios Malloc2D
+Dudas de Proyecto. Y resto de la clase para tarbajar en los ejercicios Malloc
 y/o proyecto
 
 Class 13: 
 Revisamos ejercicios de Malloc, Malloc.c y los 4 ejercicios de las disapositivas.
-Presentacion de Proyectos en Clase.
+Presentacion de Proyectos en Clase. Comenzamos farm.c queda el ejercicio de granja de tarea.
 
 Class 14:
-Terminamos de ver Malloc en forma: malloc_ppt.c, malloc.c y comenzamos farm.c
-queda el ejercicio de granja de tarea.
+Revision de Farm.c
+Malloc 2D powerpoint y malloc2d.c
