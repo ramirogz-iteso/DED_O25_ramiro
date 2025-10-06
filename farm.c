@@ -244,12 +244,10 @@ int main()
     {
       case 1:
         print_all(farm, FARMSIZE);
-        getchar();
       break;
 
       case 2:
         freeweaks(farm, FARMSIZE);
-        getchar();
       break;
       case 3:
         
@@ -260,6 +258,15 @@ int main()
           printf("FARM FULL cannot add anymore\n");
       break;
       case 4:
+        printf("Add chicken where? (IDX): ");
+        scanf("%d", &idx);
+        if(farm[idx]!=NULL)
+        {
+          printf("Sorry, cannot add, chicken exist\n");
+          getchar();
+        }
+        else
+          farm[idx] = create_chicken(idx);
       break;
       case 5:
         printf("which chicken? (IDX): ");
@@ -267,18 +274,12 @@ int main()
         deletechicken(farm, idx);
       break;
       case 6:
-        // FARMSIZE = 10
         printf("Expanding size of farm from %d to .... %d\n", FARMSIZE, FARMSIZE*2);
         int oldsize = FARMSIZE;
-        //oldsize = 10
-
         FARMSIZE = FARMSIZE * 2;
 
-        //FARMSIZE = 20
         farm = realloc(farm, FARMSIZE * sizeof(chicken *));
-
-        // ptr = realloc(ptr, NEW_SIZE)
-      
+  
         // NULL all new pointers we just created.
         for(int x=oldsize; x<FARMSIZE; x++)
         {
