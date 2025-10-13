@@ -29,6 +29,7 @@ node *header = NULL;  //<--- this is our first linked list! :)
 //Pending:
 node *newNode(int n) 
 {
+  //Remember the code to this is on the slides
 
 }
 
@@ -39,9 +40,10 @@ void printlist(node *list)
 }
 
 //Pending:
-/* Function that receives an existing node, and adds this node to the END
+/* Function that receives a number to add, then adds this node to the END
    of the linked list. Be careful with corner cases, what happens if the list
-   is NULL (empty list?) */
+   is NULL (empty list?)
+   node does not exist, we should create the node  */
 void add(int num) 
 {
 
@@ -113,8 +115,7 @@ int main()
   Use a FOR loop to fill the 5 nodes */
   for (int x = 1; x <= 2; x++) 
   {
-    node *n = newNode(x + 1);
-    add(n);
+    add(x+1);
   }
 
   /* #4:
