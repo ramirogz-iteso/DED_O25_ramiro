@@ -30,6 +30,10 @@ node *header = NULL;  //<--- this is our first linked list! :)
 node *newNode(int n) 
 {
   //Remember the code to this is on the slides
+  node *new_node = (node*) malloc(sizeof(node));
+  new_node->value = n;
+  new_node->next = NULL;
+  return(new_node);
 }
 
 
