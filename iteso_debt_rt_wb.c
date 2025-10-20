@@ -140,8 +140,9 @@ int main()
     
     fscanf(file, "%d", &num_students);
     printf("Found %d students in the file\n", num_students);
+    //malloc 1x
     school = (student **)malloc(sizeof(student *) * num_students);
-    
+    //malloc 8x
     for (int i = 0; i < num_students; i++)
     {
       int id; float money;  
@@ -150,6 +151,7 @@ int main()
       fscanf(file, "$%f\n", &money);
       school[i]->id = id;
       school[i]->debt = money;
+      //fread(school[i], sizeof(student), 1, file);
     }
     fgets(school_name, 16, file);
     
@@ -165,6 +167,9 @@ int main()
       fwrite(school[i], sizeof(student), 1, file);
     }
     fwrite(school_name, 16, 1, file);
-    fclose(file);    
+    fclose(file); 
+    
+    //TODO
+    //free
     return 0;
 }

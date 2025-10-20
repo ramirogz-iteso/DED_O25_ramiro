@@ -40,6 +40,14 @@ node *newNode(int n)
 //Pending:
 void printlist(node *list) 
 {
+  node *aux = list;
+  printf("Current list elements:\n\t");
+  while (aux != NULL) 
+  {
+    printf("[%d]->", aux->value);
+    aux = aux->next;
+  }
+  printf("NULL\n\n");
 
 }
 
@@ -50,7 +58,22 @@ void printlist(node *list)
    node does not exist, we should create the node  */
 void add(int num) 
 {
+  node *nptr = header;
 
+  // handle the case where there is no list, header will be null
+  // just update header.
+  if(nptr == NULL)
+  {
+    header = newNode(num);
+    return;
+  }
+   
+  // cases for adding node n, at the end of a existing list.
+  while (nptr->next != NULL) 
+  {
+    nptr = nptr->next;
+  }
+  nptr->next = newNode(num);
 }
 
 //Pending:
@@ -63,6 +86,28 @@ void add(int num)
 
 int insertafter(int new_num, int n)
 {
+  node *nptr = header;
+  node *next = NULL;
+  node *new;
+
+  printf("\t\t(insertafter): number to find: %d\n", n);
+  while (nptr != NULL) {
+    if (nptr->value == n) 
+    {
+      printf("\t\t(insertafter): found it!: %d\n", n);
+      next = nptr->next;
+      new = newNode(new_num);
+      nptr->next = new;
+      new->next = next;
+      return 1;
+    } else 
+    {
+      printf("\t\t(insertafter): not yet, %d\n", nptr->value);
+      nptr = nptr->next;
+    }
+  }
+  printf("\t\t(insertafter): failed to find %d, return 0\n", n);
+  /* If we reach this, we failed to insert */
   return 0;
 }
 
@@ -77,6 +122,40 @@ int insertafter(int new_num, int n)
 
 int insertbefore(int new_num, int n)
 {
+  node * nptr = header;
+  node * back = NULL;
+  node * new;
+  printf("\t\t(insertbefore): number to find: %d\n", n);
+  while(nptr->next != NULL)
+  {
+    if(nptr->value == n)
+    {
+      if(nptr == header)
+      {
+        node *next = nptr;
+        new = newNode(new_num);
+        header = new;
+        header->next = next;
+        printf("\t\t(insertbefore): done, replaced header\n");
+        return 1;
+      }
+      else
+      { 
+        new = newNode(new_num); 
+        back->next = new;
+        new->next = nptr;
+        printf("\t\t(insertbefore): done\n");
+        return 1;
+      }
+    }
+    else
+    { 
+      back = nptr;
+      nptr = nptr->next;
+    }
+  }
+  printf("\t\t(insertbefore): failed to find %d, return 0\n", n);
+  /* If we reach this, we failed to insert */
   return 0;
 }
 
@@ -84,7 +163,41 @@ int insertbefore(int new_num, int n)
 /* Function to delete the node that contains number N */
 void delete(int n)
 {
-
+  node * nptr = header;
+  node * back = NULL;
+  printf("\t\t(delete): number to delete: %d\n", n);
+  while(nptr != NULL)
+  {
+    if(nptr->value == n)
+    {
+      if(nptr == header)
+      {
+        // Found element in header, update header and delete
+        printf("\t\t(delete): found elem %d at Head... update header\n", nptr->value);
+        header = nptr->next;
+        free(nptr);
+        return;
+      }  
+      else
+      {  
+        printf("\t\t(delete): found elem %d\n", nptr->value);
+        // Delete a non-header node
+        node *next = nptr->next;
+        free(nptr);
+        back->next = next;
+        printf("\t\t(delete): element deletion completed\n");
+        return;
+      }
+    }
+    else
+    {
+      // Not this node, continue searching (keeping a pointer
+      // to the previous node)
+      printf("\t\t(delete): not found (%d)... next\n", nptr->value);
+      back = nptr;
+      nptr = nptr->next;
+    }
+  }
 }
 
 //Pending
@@ -94,7 +207,20 @@ void delete(int n)
 
 void search(int to_search)
 {
-
+  node * n = header;
+  while(n->next != NULL)
+  {
+    if(n->value == to_search)
+    {
+      printf("\t\t(search): found node [%d] at %p\n", to_search, n);
+      return;
+    }
+    else
+    {  
+      n = n->next;
+    }
+  }
+  printf("NULL\n\n");
 }
 
 int main() 
@@ -113,7 +239,7 @@ int main()
   /* #3:
   Create 5 additional nodes, so that we have a total list of 5 nodes
   properly linked together. Write a function
-  add() that receives a node (created with newNode()) and
+  add() that receives the new num
   adds this node to the end of the list.
 
   Use a FOR loop to fill the 5 nodes */
@@ -141,6 +267,53 @@ int main()
   int selection, todel, toinsert, tosearch, putafter, putbefore;
   node *new_node;
   int r;
+  while (1) 
+  {
+    printlist(header);
+    printf("\n");
+    printf("Select option:\n 1) Delete\n 2) Insert after\n 3) Insert before\n"
+           " 4) Search\n 5) add-to-end\n");
+    printf("\topc: ");
+    r = scanf("%d", &selection);
+    switch (selection) {
+    case 1:
+      printf("\tNumber to delete: ");
+      r = scanf("%d", &todel);
+      delete(todel);
+      break;
+    case 2:
+      printf("\tNumber to insert: ");
+      r = scanf("%d", &toinsert);
+      printf("\tInsert after which node?: ");
+      r = scanf("%d", &putafter);
+      insertafter(toinsert, putafter);
+      break;
+
+    case 3:
+      printf("\tNumber to insert: ");
+      r = scanf("%d", &toinsert);
+      printf("\tInsert before which node?: ");
+      r = scanf("%d", &putbefore);
+      
+      insertbefore(toinsert, putbefore);
+      break;
+
+    case 4:
+      printf("\tNumber to search: ");
+      r = scanf("%d", &tosearch);
+      search(tosearch);
+      break;
+    case 5:
+      printf("\tNumber to add: ");
+      r = scanf("%d", &toinsert);
+      add(toinsert);
+      break;
+    }
+    getchar();
+    printf("press enter to continue\n");
+    getchar();
+    CLEAR
+  }
 }
 
 /* #6 Once everything is working, make a copy of this file and  

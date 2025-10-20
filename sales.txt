@@ -4,3 +4,4 @@ day 7 sales $10 items 1
 day 8 sales $150 items 25
 day 9 sales $1200 items 150
 day 19 sales $200 items 50
+AVERAGES WRITTEN IN average_sales.txt

@@ -36,10 +36,16 @@ int main()
 
   fputs("MONTHLY AVERAGES\n", promedios);
 
+  // 1 line
+  //fscanf(sales, "day %d sales $%f items %d\n", 
+  //              &day, &cost, &items);
+
   while((ret=fscanf(sales, "day %d sales $%f items %d\n", 
                 &day, &cost, &items)) != EOF)
   {
     printf("read from file %d %f %d\n", day, cost, items);
+    //printf("ret is %d\n", ret);
+    //getchar();
     fprintf(promedios, "day %d average %f\n", day, cost/(float)items);
     getchar();
     printf("loop\n");
@@ -59,6 +65,18 @@ int main()
 
   fclose(sales);
   fclose(promedios);
+
+  /*     leer texto                    binario. 
+          fgetc                        fread
+          fgets
+          fscanf
+
+          escribir                     fwrite
+          fputc
+          fputs
+          fprintf
+  
+  */
 
   return 0;
 }

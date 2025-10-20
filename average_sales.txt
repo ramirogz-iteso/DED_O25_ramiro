@@ -1,0 +1,7 @@
+MONTHLY AVERAGES
+day 5 average 6.700000
+day 6 average 10.047143
+day 7 average 10.000000
+day 8 average 6.000000
+day 9 average 8.000000
+day 19 average 4.000000
