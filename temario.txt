@@ -1,0 +1,51 @@
+
+Memoria Dinamica
+  malloc  /  por cada malloc tiene que haber un free
+  int x;  // static
+  int *x = malloc(#bytes)
+
+  calloc / igual que malloc pero limpia
+  realloc / redimenciona (util para arreglos)
+
+Arrreglos de punteros con memoria Dinamica
+Matrices, arreglos 2:
+
+  1) malloc superior [   *.  *.  *.  *. ]
+                          |
+  2) malloc inferior.   [ x ]
+
+
+Archivos:
+
+  ciclo de vida de un leer una rchivo
+  FILE *  -> fopen -> modo (r, w, rb ..) -> operan -> fclose()
+
+  Texto - .txt bloq de notas
+    leer:
+      fscanf  como el scanf, formatea y pone variables en su lugar
+      fgetc   lee un char a la vez
+      fgets   lee una linea a la vez 
+
+    escribir
+      fprintf
+      fputs
+      fputc
+
+  Binario
+    fread / fwrite
+
+  FSEEK
+
+
+  Estructuras auto referenciales:
+
+    Listas: 
+      Crear
+      Agregar elementos en X posicion
+      Borrar
+      recorrer
+      
+    Stacks:
+      El primer elemento que entra.... el ultimo en salir
+
+  Tipos de datos Abstractos ( TDA / ADT )
