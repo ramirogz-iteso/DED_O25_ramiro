@@ -26,6 +26,7 @@
 int main()
 {
   date * today;
+
   today = date_new (1, 10, 2022);
   date_printl(today);
   date_prints(today);
