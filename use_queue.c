@@ -32,6 +32,8 @@ int main() {
     getchar();
    }
 
+   getchar();
+
   int n1 = 100, n2 = 200, n3 = 300, n4 = 400;
   queue_enqueue(q1, &n4);
   queue_enqueue(q1, &n3);
