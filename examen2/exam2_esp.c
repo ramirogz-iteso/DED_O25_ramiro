@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
 
 /* INSTRUCCIÓN GENERAL:
@@ -230,7 +229,7 @@ int e04()
   node L3n1, L3n2, L3n3;
   L3n1.value=1; L3n2.value=2; L3n3.value=3;
   L3n1.next=&L3n2; L3n2.next = &L3n3; L3n3.next = &L3n1;
-  L3 = &L3n2;
+  L3 = &L3n1;
   /* NO TOCAR, inicialización de la lista circular de demostración L3 */
 
   print_circular_list(L3);
@@ -351,7 +350,8 @@ int main()
   printf("=== E03: Secret age \n");
   //e03();
   printf("=== E04: Stop the infinite loop (circular list) \n");
-  //e04();
+  e04();
+  printf("test\n");
   printf("=== E05: Multiple lists (array of lists) \n");
   //e05();
   printf("=== E06: Stack \n");
